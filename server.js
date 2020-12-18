@@ -5,8 +5,6 @@ const helmet = require('helmet')
 const cors = require('cors')
 const MOVIEDEX = require('./movies-data-small.json')
 
-console.log(process.env.API_TOKEN)
-
 const app = express()
 
 app.use(morgan('dev'))
@@ -22,8 +20,6 @@ app.use(function validateBearerToken(req, res, next) {
     }
     next()
 })
-
-const validGenres = ['Romantic', 'Animation', 'Drama', 'Comedy', 'Spy', 'Crime', 'Thriller', 'Adventure', 'Documentary', 'Horror', 'Action']
 
 app.get('/movies', function handleGetMovies(req, res) {
     let response = MOVIEDEX;
